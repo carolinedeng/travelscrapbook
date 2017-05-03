@@ -1,7 +1,13 @@
-$(document).ready(polaroid);
 var images = [
-{src:"bird.jpg"},
-{src:"toucan.jpg"},
+{src:"images/meiji.jpg"},
+{src:"images/ramen.jpg"},
+{src:"images/sushi.jpg"},
+{src:"images/takoyaki.jpg"},
+{src:"images/akihabara.jpg"},
+{src:"images/mochi.jpg"},
+{src:"images/okonomiyaki.jpg"},
+{src:"images/sign.jpg"},
+{src:"images/tsukiji.jpg"},
 ];
 
 function generateRandomForArray() {
@@ -12,14 +18,23 @@ function generateRandomForArray() {
 }
 
 function generateRandom() {
-    var num = Math.floor(Math.random() * 400);
+    var num = Math.floor(Math.random() * 800);
     return num;
 }
 
-function showImage() {
+function showImage(img) {
     var image = images[generateRandomForArray()];
-    $("div").attr('src', image.src);
     var left = generateRandom();
     var top = generateRandom();
-    $("div").last().css({"position":"absolute","top": top + "px", "left": left + "px"});
+    img.css({"position":"absolute","top": top + "px", "left": left + "px"});
 }
+
+$('.polaroid').each(function(i, img){
+    var rotation = Math.random() * 90 - 45;
+    $(img).css({'transform': 'rotate('+rotation+'deg)'});
+    showImage($(img));
+});
+
+$('.polaroid').on('click', function(){
+
+});
