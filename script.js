@@ -38,3 +38,4 @@ $('.polaroid').each(function(i, img){
 $('.polaroid').on('click', function(){
 
 });
+
